@@ -1,2 +1,6 @@
 src/__pycache__/
+venv/
+.DS_Store
+._.DS_Store
 temperatures.txt
+

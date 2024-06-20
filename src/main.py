@@ -1,19 +1,17 @@
 from temp import read_temp
-import time
 import datetime
+from flask import Flask, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 
-def main():
-    with open("./temperatures.txt", "w") as f:
-        while True:
-            temp_f = read_temp()
-            current_time = datetime.datetime.now()
-            temperature = f"{current_time} - {temp_f}\n"
-            f.write(temperature)
-            print(temperature)
-
-            f.flush()
-            time.sleep(1)
+@app.route("/")
+def home():
+    temp_f = read_temp()
+    return jsonify(message=temp_f)
 
 
-main()
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
