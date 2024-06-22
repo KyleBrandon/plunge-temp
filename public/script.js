@@ -6,6 +6,7 @@ async function fetchDataAndUpdate() {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
+    console.log(data.message);
     document.getElementById("data-container").innerText = JSON.stringify(
       data.message,
     );

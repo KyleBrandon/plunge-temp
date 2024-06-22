@@ -3,4 +3,5 @@ venv/
 .DS_Store
 ._.DS_Store
 temperatures.txt
+connect-pi.sh
 
